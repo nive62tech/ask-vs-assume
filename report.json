@@ -1,0 +1,36 @@
+[
+  {
+    "provider": "google",
+    "model": "gemini-flash-lite-latest",
+    "overall_ece_ambiguous": 0.6333,
+    "auroc_confidence_predicts_should_ask": 0.622,
+    "ask_rate": 0.8,
+    "assume_rate": 0.2,
+    "accuracy_ambiguous": 0.9,
+    "accuracy_clear": 1.0,
+    "n_ambiguous_graded": 60,
+    "by_domain": {
+      "coding": {
+        "n": 20,
+        "ece": 0.7175,
+        "auroc": 0.845,
+        "accuracy": 0.85,
+        "ask_rate": 0.7
+      },
+      "planning": {
+        "n": 20,
+        "ece": 0.655,
+        "auroc": 0.5833,
+        "accuracy": 0.95,
+        "ask_rate": 0.85
+      },
+      "support": {
+        "n": 20,
+        "ece": 0.5275,
+        "auroc": 0.3529,
+        "accuracy": 0.9,
+        "ask_rate": 0.85
+      }
+    }
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "provider": "openai",
+  "model": "gpt-4o",
+  "results": [
+    {
+      "pair_id": "code_001",
+      "domain": "coding",
+      "version": "ambiguous",
+      "prompt": "Add retry logic to the API call in this function.",
+      "gold_clarifying_question": "How many retries, what backoff strategy, and which errors should trigger a retry?",
+      "reasonable_assumption": "Assume 3 retries with fixed 1s delay on any exception \u2014 reasonable default, but backoff strategy and which-errors-count are genuine unknowns.",
+      "assumption_is_safe": false,
+      "raw_output": "",
+      "action": null,
+      "response": "",
+      "confidence": null
+    },
+    {
+      "pair_id": "code_001",
+      "domain": "coding",
+      "version": "clear",
+      "prompt": "Add retry logic to the fetchUser API call: retry up to 3 times on any 5xx response or network error, with exponential backoff starting at 500ms, and raise the original error if all retries fail.",
+      "gold_clarifying_question": "How many retries, what backoff strategy, and which errors should trigger a retry?",
+      "reasonable_assumption": "Assume 3 retries with fixed 1s delay on any exception \u2014 reasonable default, but backoff strategy and which-errors-count are genuine unknowns.",
+      "assumption_is_safe": false,
+      "raw_output": "",
+      "action": null,
+      "response": "",
+      "confidence": null
+    }
+  ]
+}

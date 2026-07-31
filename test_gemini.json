@@ -1,0 +1,58 @@
+{
+  "provider": "google",
+  "model": "gemini-flash-latest",
+  "results": [
+    {
+      "pair_id": "code_001",
+      "domain": "coding",
+      "version": "ambiguous",
+      "prompt": "Add retry logic to the API call in this function.",
+      "gold_clarifying_question": "How many retries, what backoff strategy, and which errors should trigger a retry?",
+      "reasonable_assumption": "Assume 3 retries with fixed 1s delay on any exception \u2014 reasonable default, but backoff strategy and which-errors-count are genuine unknowns.",
+      "assumption_is_safe": false,
+      "raw_output": "ACTION: ASK\nCONFIDENCE: 95\nRESPONSE: Could you please share the code of the function containing the API call so I can add the appropriate retry logic?",
+      "action": "ASK",
+      "response": "Could you please share the code of the function containing the API call so I can add the appropriate retry logic?",
+      "confidence": 95
+    },
+    {
+      "pair_id": "code_001",
+      "domain": "coding",
+      "version": "clear",
+      "prompt": "Add retry logic to the fetchUser API call: retry up to 3 times on any 5xx response or network error, with exponential backoff starting at 500ms, and raise the original error if all retries fail.",
+      "gold_clarifying_question": "How many retries, what backoff strategy, and which errors should trigger a retry?",
+      "reasonable_assumption": "Assume 3 retries with fixed 1s delay on any exception \u2014 reasonable default, but backoff strategy and which-errors-count are genuine unknowns.",
+      "assumption_is_safe": false,
+      "raw_output": "ACTION: ASSUME\nCONFIDENCE: 90\nRESPONSE: Assuming a JavaScript/TypeScript environment using",
+      "action": "ASSUME",
+      "response": "Assuming a JavaScript/TypeScript environment using",
+      "confidence": 90
+    },
+    {
+      "pair_id": "code_002",
+      "domain": "coding",
+      "version": "ambiguous",
+      "prompt": "Write a function that validates an email address.",
+      "gold_clarifying_question": "What language should this be in, and how strict should the validation be (RFC-compliant regex vs. simple sanity check)?",
+      "reasonable_assumption": "Assume Python and a simple sanity-check regex \u2014 a common default, though RFC-compliant validation is a materially different (and common) ask.",
+      "assumption_is_safe": true,
+      "raw_output": "ACTION: ASSUME\nCONFIDENCE: 85\nRESPONSE: Assuming you want a Python solution, here is a function using standard regular expressions to validate email syntax:\n\n```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))\n```",
+      "action": "ASSUME",
+      "response": "Assuming you want a Python solution, here is a function using standard regular expressions to validate email syntax:\n\n```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))\n```",
+      "confidence": 85
+    },
+    {
+      "pair_id": "code_002",
+      "domain": "coding",
+      "version": "clear",
+      "prompt": "Write a Python function `is_valid_email(s: str) -> bool` that checks for a single '@', a non-empty local part, and a domain with at least one '.', using a regex (no external libraries).",
+      "gold_clarifying_question": "What language should this be in, and how strict should the validation be (RFC-compliant regex vs. simple sanity check)?",
+      "reasonable_assumption": "Assume Python and a simple sanity-check regex \u2014 a common default, though RFC-compliant validation is a materially different (and common) ask.",
+      "assumption_is_safe": true,
+      "raw_output": "ACTION: ASSUME\nCONFIDENCE: 98\nRESPONSE: Assuming basic validation where both the local part and domain labels around the dot must be non-empty and contain no extra `@` symbols, here is the function:\n\n```python\nimport re\n\n\ndef is_valid_email(s: str) -> bool:\n    pattern = r\"^[^@]+@[^@]+\\.[^@]+$\"\n    return bool(re.match(pattern, s))\n```",
+      "action": "ASSUME",
+      "response": "Assuming basic validation where both the local part and domain labels around the dot must be non-empty and contain no extra `@` symbols, here is the function:\n\n```python\nimport re\n\n\ndef is_valid_email(s: str) -> bool:\n    pattern = r\"^[^@]+@[^@]+\\.[^@]+$\"\n    return bool(re.match(pattern, s))\n```",
+      "confidence": 98
+    }
+  ]
+}
